@@ -77,6 +77,19 @@ form {
     background-color: var(--color-confirm);
 }
 
+.btnDeleteAll {
+    color: #fff;
+    background-color: var(--color-add);
+    font-size: 1.4rem;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.btnDeleteAll:hover {
+    cursor: pointer;
+    background-color: var(--color-confirm);
+}
+
 input {
     padding: 15px 10px;
     border-radius: 5px;
@@ -85,32 +98,9 @@ input {
     align-items: center;
 }
 
-.empty {
+.emptyTask {
     color: var(--color-title);
     text-align: center;
-}
-
-.menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    background-color: var(--bg-body);
-    border-radius: 5px;
-}
-
-.menu button {
-    background-color: var(--color-add);
-    padding: 5px;
-    font-size: 15px;
-    color: var(--bg-body);
-    border-radius: 5px;
-}
-
-.menu button:hover {
-    background-color: var(--color-confirm);
-    padding: 5px;
 }
 
 /* add dom */
@@ -123,7 +113,6 @@ input {
 
 ul {
     padding: 0;
-    /* display: flex; */
 }
 
 li {

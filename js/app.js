@@ -1,10 +1,12 @@
+// capturing elements
 const input = document.querySelector("input");
-const addBtn = document.querySelector(".btnAdd");
+const btnAdd = document.querySelector(".btnAdd");
 const ul = document.querySelector("ul");
-const empty = document.querySelector(".empty");
+const emptyTask = document.querySelector(".emptyTask");
 const deleteAll = document.getElementById("btnDeleteAll")
 
-addBtn.addEventListener("click", (e) => {
+// event add task capturing the input value
+btnAdd.addEventListener("click", (e) => {
     e.preventDefault();
     const text = input.value;
 
@@ -13,29 +15,35 @@ addBtn.addEventListener("click", (e) => {
         const p = document.createElement("p");
         p.innerHTML = `<input type="checkbox" id="check"> ${text}`;
         li.appendChild(p);
-        li.appendChild(addDeleteBtn());
+        li.appendChild(btnDelete());
         ul.appendChild(li);
         input.value = "";
-        empty.style.display = "none";
+        emptyTask.style.display = "none";
     }
 });
 
-
-deleteAll.addEventListener("click", () => {
+// event button delete all
+deleteAll.addEventListener("click", (e) => {
+    e.preventDefault()
     ul.textContent = ""
+    const items = document.querySelectorAll("li");
+    if (items.length === 0) {
+        emptyTask.style.display = "block";
+    }
 })
 
-function addDeleteBtn() {
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "🗑️";
-    deleteBtn.className = "btnDelete";
-    deleteBtn.addEventListener("click", (e) => {
+// event function delete single task
+function btnDelete() {
+    const btnDelete = document.createElement("button");
+    btnDelete.textContent = "🗑️";
+    btnDelete.className = "btnDelete";
+    btnDelete.addEventListener("click", (e) => {
         const item = e.target.parentElement;
         ul.removeChild(item);
         const items = document.querySelectorAll("li");
         if (items.length === 0) {
-            empty.style.display = "block";
+            emptyTask.style.display = "block";
         }
     });
-    return deleteBtn;
+    return btnDelete;
 }
